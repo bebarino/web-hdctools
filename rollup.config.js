@@ -16,6 +16,9 @@ const baseConfig = createSpaConfig({
 
 export default merge(baseConfig, {
   input: './index.html',
+  output: {
+    sourcemap: true,
+  },
   plugins: [
     legacy({
       'assets/hterm_all.js': {
