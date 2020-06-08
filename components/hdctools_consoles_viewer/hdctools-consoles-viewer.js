@@ -8,7 +8,6 @@ import '@material/mwc-tab-bar';
 import { html, css } from 'lit-element';
 import { PageViewElement } from '../page-view-element.js';
 import { connect } from 'pwa-helpers';
-import { repeat } from 'lit-html/directives/repeat.js';
 
 import { store } from '../../src/store.js';
 
@@ -59,9 +58,8 @@ class HdctoolsConsolesViewer extends connect(store)(PageViewElement) {
           store.dispatch(selectConsole(index));
         }}"
       >
-        ${repeat(
-          _consoles,
-          html`<mwc-tab label="Console" icon="computer"></mwc-tab>`
+        ${_consoles.map(
+          () => html`<mwc-tab label="Console" icon="computer"></mwc-tab>`
         )}
       </mwc-tab-bar>
       <div id="consoles">
