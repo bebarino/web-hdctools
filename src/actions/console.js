@@ -3,7 +3,7 @@ export const CONSOLE_OPENED = "CONSOLE_OPENED";
 
 import { currentDeviceSelector } from "./device.js";
 import { updateLocationURL } from "./app.js";
-import { createSelector } from "https://unpkg.com/reselect@4.0.0?module";
+import { createSelector } from "reselect";
 
 export const discoverConsoles = (dispatch, getState) => {
   let device = currentDeviceSelector(getState());

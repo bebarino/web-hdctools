@@ -1,9 +1,9 @@
-import "https://unpkg.com/@material/mwc-icon-button@0.14.1/mwc-icon-button.js?module";
-import "https://unpkg.com/@material/mwc-linear-progress@0.14.1?module";
+import "@material/mwc-icon-button";
+import "@material/mwc-linear-progress";
 
-import { html, LitElement, css } from "https://unpkg.com/lit-element?module";
+import { html, LitElement, css } from "lit-element";
 import { PageViewElement } from "../page-view-element.js";
-import { connect } from "https://unpkg.com/pwa-helpers@latest/connect-mixin.js?module";
+import { connect } from "pwa-helpers";
 
 import { store } from "../../src/store.js";
 import { readFlash, writeFlash } from "../../src/actions/flashrom.js";

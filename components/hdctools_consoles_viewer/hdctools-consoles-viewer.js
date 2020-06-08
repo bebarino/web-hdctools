@@ -1,17 +1,15 @@
-import "https://unpkg.com/@material/mwc-button@0.14.1/mwc-button.js?module";
-import "https://unpkg.com/@material/mwc-dialog@0.14.1/mwc-dialog.js?module";
-import "https://unpkg.com/@material/mwc-drawer@0.14.1/mwc-drawer.js?module";
-import "https://unpkg.com/@material/mwc-drawer@0.14.1/mwc-drawer-base.js?module";
-import "https://unpkg.com/@material/mwc-icon-button@0.14.1/mwc-icon-button.js?module";
-import "https://unpkg.com/@material/mwc-list@0.14.1/mwc-list.js?module";
-import "https://unpkg.com/@material/mwc-list@0.14.1/mwc-list-item.js?module";
-import "https://unpkg.com/@material/mwc-tab-bar@0.14.1/mwc-tab-bar.js?module";
+import "@material/mwc-button";
+import "@material/mwc-dialog";
+import "@material/mwc-drawer";
+import "@material/mwc-icon-button";
+import "@material/mwc-list";
+import "@material/mwc-tab-bar";
 
-import { html, LitElement, css } from "https://unpkg.com/lit-element?module";
-import { render } from "https://unpkg.com/lit-html?module";
+import { html, LitElement, css } from "lit-element";
+import { render } from "lit-html";
 import { PageViewElement } from "../page-view-element.js";
-import { connect } from "https://unpkg.com/pwa-helpers@latest/connect-mixin.js?module";
-import { repeat } from "https://unpkg.com/lit-html/directives/repeat.js?module";
+import { connect } from "pwa-helpers";
+import { repeat } from "lit-html/directives/repeat.js";
 
 import { store } from "../../src/store.js";
 
@@ -23,7 +21,6 @@ import {
 } from "../../src/actions/console.js";
 import { consoles } from "../../src/reducers/console.js";
 import { updateLocationURL } from "../../src/actions/app.js";
-//import "../hdctools_console_tab/hdctools-console-tab.js";
 import "../hdctools_console_view/hdctools-console-view.js";
 
 store.addReducers({ consoles });

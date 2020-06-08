@@ -1,18 +1,17 @@
-import "https://unpkg.com/@material/mwc-button@0.14.1/mwc-button.js?module";
-import "https://unpkg.com/@material/mwc-drawer@0.14.1/mwc-drawer.js?module";
-import "https://unpkg.com/@material/mwc-drawer@0.14.1/mwc-drawer-base.js?module";
-import "https://unpkg.com/@material/mwc-icon-button@0.14.1/mwc-icon-button.js?module";
-import "https://unpkg.com/@material/mwc-list@0.14.1/mwc-list.js?module";
-import "https://unpkg.com/@material/mwc-list@0.14.1/mwc-list-item.js?module";
-import "https://unpkg.com/@material/mwc-tab-bar@0.14.1/mwc-tab-bar.js?module";
+import "@material/mwc-button";
+import "@material/mwc-drawer";
+import "@material/mwc-icon-button";
+import "@material/mwc-list/mwc-list.js";
+import "@material/mwc-list/mwc-list-item.js";
+import "@material/mwc-tab-bar";
 
-import { connect } from "https://unpkg.com/pwa-helpers@latest/connect-mixin.js?module";
+import { connect } from "pwa-helpers";
 import { store } from "../../src/store.js";
 import { selectDevice, requestUSBDevice } from "../../src/actions/device.js";
 import { updateLocationURL } from "../../src/actions/app.js";
 
-import { html, LitElement, css } from "https://unpkg.com/lit-element?module";
-import { repeat } from "https://unpkg.com/lit-html/directives/repeat.js?module";
+import { html, LitElement, css } from "lit-element";
+import { repeat } from "lit-html/directives/repeat.js"
 
 /* Represents the consoles for a particular USB device */
 class HdctoolsSideBar extends connect(store)(LitElement) {

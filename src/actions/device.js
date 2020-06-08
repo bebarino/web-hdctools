@@ -6,7 +6,7 @@ export const USB_DEVICE_ADD_FAILED = "USB_DEVICE_ADD_FAILED";
 export const USB_DEVICE_OPENED = "USB_DEVICE_OPENED";
 export const USB_DEVICE_OPEN_FAILED = "FAIL_DEVICE_OPEN";
 
-import { createSelector } from "https://unpkg.com/reselect@4.0.0?module";
+import { createSelector } from "reselect";
 import { updateTitle, updateLocationURL } from "./app.js";
 
 import { store } from "../store.js";

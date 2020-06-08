@@ -1,6 +1,4 @@
-const createStore = Redux.createStore;
-const combineReducers = Redux.combineReducers;
-const applyMiddleware = Redux.applyMiddleware;
+import { createStore, combineReducers, applyMiddleware } from "redux";
 
 /* This is ripped straight from redux-thunk because modules and imports confuse me */
 function createThunkMiddleware(extraArgument) {
@@ -21,7 +19,7 @@ function createThunkMiddleware(extraArgument) {
 
 var thunk = createThunkMiddleware();
 
-import { lazyReducerEnhancer } from "https://unpkg.com/pwa-helpers@latest/lazy-reducer-enhancer.js?module";
+import { lazyReducerEnhancer } from "pwa-helpers";
 
 const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
 

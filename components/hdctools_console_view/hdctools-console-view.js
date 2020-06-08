@@ -1,8 +1,9 @@
 // The element for a single terminal window
-import { connect } from "https://unpkg.com/pwa-helpers@latest/connect-mixin.js?module";
+import { hterm } from "../../assets/hterm_all.js";
+import { connect } from "pwa-helpers";
 import { store } from "../../src/store.js";
 
-import { html, css, LitElement } from "https://unpkg.com/lit-element?module";
+import { html, css, LitElement } from "lit-element";
 
 //import { updateMetadata } from "https://unpkg.com/pwa-helpers@latest/metadata.js?module";
 

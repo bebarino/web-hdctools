@@ -1,14 +1,12 @@
-import "https://unpkg.com/@material/mwc-button@0.14.1/mwc-button.js?module";
-import "https://unpkg.com/@material/mwc-dialog@0.14.1/mwc-dialog.js?module";
-import "https://unpkg.com/@material/mwc-drawer@0.14.1/mwc-drawer.js?module";
-import "https://unpkg.com/@material/mwc-drawer@0.14.1/mwc-drawer-base.js?module";
-import "https://unpkg.com/@material/mwc-icon-button@0.14.1/mwc-icon-button.js?module";
-import "https://unpkg.com/@material/mwc-tab-bar@0.14.1/mwc-tab-bar.js?module";
-import "https://unpkg.com/@material/mwc-top-app-bar@0.14.1/mwc-top-app-bar.js?module";
+import "@material/mwc-button";
+import "@material/mwc-dialog";
+import "@material/mwc-drawer"
+import "@material/mwc-icon-button";
+import "@material/mwc-top-app-bar";
 
-import { connect } from "https://unpkg.com/pwa-helpers@latest/connect-mixin.js?module";
-import { installRouter } from "https://unpkg.com/pwa-helpers@latest/router.js?module";
-import { html, LitElement, css } from "https://unpkg.com/lit-element?module";
+import { connect } from "pwa-helpers";
+import { installRouter } from "pwa-helpers";
+import { html, LitElement, css } from "lit-element";
 
 import { store } from "../../src/store.js";
 import { navigate } from "../../src/actions/app.js";
@@ -18,6 +16,7 @@ import {
 } from "../../src/actions/device.js";
 import { usbReducer } from "../../src/reducers/device.js";
 import { app } from "../../src/reducers/app.js";
+import { lib } from "../../assets/hterm_all.js";
 
 import "../hdctools_sidebar/hdctools-sidebar.js";
 

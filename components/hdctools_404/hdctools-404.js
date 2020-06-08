@@ -1,4 +1,4 @@
-import { html, css } from "https://unpkg.com/lit-element?module";
+import { html, css } from "lit-element";
 import { PageViewElement } from "../page-view-element.js";
 
 class Hdctools404 extends PageViewElement {
