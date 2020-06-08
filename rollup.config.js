@@ -18,9 +18,9 @@ export default merge(baseConfig, {
   input: './index.html',
   plugins: [
     legacy({
-      'assets/hterm_all.js': { 
-	hterm: 'hterm',
-	lib: 'lib',
+      'assets/hterm_all.js': {
+        hterm: 'hterm',
+        lib: 'lib',
       },
     }),
     resolve({
@@ -28,7 +28,7 @@ export default merge(baseConfig, {
     }),
     replace({
       ENV: env,
-      'process.env.NODE_ENV': env
+      'process.env.NODE_ENV': env,
     }),
   ],
 });

@@ -1,5 +1,5 @@
-import { html, css } from "lit-element";
-import { PageViewElement } from "../page-view-element.js";
+import { html, css } from 'lit-element';
+import { PageViewElement } from '../page-view-element.js';
 
 class Hdctools404 extends PageViewElement {
   static get styles() {
@@ -12,7 +12,7 @@ class Hdctools404 extends PageViewElement {
           justify-content: center;
           --mdc-icon-size: 64px;
         }
-      `
+      `,
     ];
   }
 
@@ -26,4 +26,4 @@ class Hdctools404 extends PageViewElement {
   }
 }
 
-customElements.define("hdctools-404", Hdctools404);
+customElements.define('hdctools-404', Hdctools404);

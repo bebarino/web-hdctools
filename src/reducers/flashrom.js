@@ -3,14 +3,14 @@ import {
   FLASHROM_CHIP_READ,
   FLASHROM_CHIP_READ_FINISHED,
   FLASHROM_CHIP_WRITE,
-  FLASHROM_CHIP_WRITE_FINISHED
-} from "../actions/flashrom.js";
+  FLASHROM_CHIP_WRITE_FINISHED,
+} from '../actions/flashrom.js';
 
 const INITIAL_STATE = {
   reading: false,
   writing: false,
   size: -1,
-  flashName: ""
+  flashName: '',
 };
 
 export const flashrom = (state = INITIAL_STATE, action) => {
@@ -19,27 +19,27 @@ export const flashrom = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         size: action.size,
-        flashName: action.flashName
+        flashName: action.flashName,
       };
     case FLASHROM_CHIP_READ:
       return {
         ...state,
-        reading: true
+        reading: true,
       };
     case FLASHROM_CHIP_READ_FINISHED:
       return {
         ...state,
-        reading: false
+        reading: false,
       };
     case FLASHROM_CHIP_WRITE:
       return {
         ...state,
-        writing: true
+        writing: true,
       };
     case FLASHROM_CHIP_WRITE_FINISHED:
       return {
         ...state,
-        writing: false
+        writing: false,
       };
     default:
       return state;
