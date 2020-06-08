@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ChromeOS hdctools in JavaScript!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <!-- <link rel="stylesheet" href="/style.css" /> -->
+    <!--  <link
+      href="https://unpkg.com/material-components-web@v5.1.0/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      rel="stylesheet"
+    />
+    <!--<link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"
+      rel="stylesheet"
+    />-->
+    <!-- import the webpage's javascript file -->
+    <!--    <script
+      type="module"
+      src="https://unpkg.com/material-components-web@v5.1.0/dist/material-components-web.min.js?module"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@material/mwc-button@latest/mwc-button.js?module"
+    ></script> -->
+    <script
+      src="https://unpkg.com/redux@4.0.5/dist/redux.js"
+      type="module"
+    ></script>
+    <script src="/hterm_all.js"></script>
+    <script
+      type="module"
+      src="components/hdctools_app/hdctools-app.js"
+    ></script>
+  </head>
+
+  <body>
+    <hdctools-app></hdctools-app>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div
+      class="glitchButton"
+      style="position:fixed;top:20px;right:20px;z-index: 5"
+    ></div>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>
