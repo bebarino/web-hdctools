@@ -1,24 +1,24 @@
-import "@material/mwc-button";
-import "@material/mwc-dialog";
-import "@material/mwc-drawer"
-import "@material/mwc-icon-button";
-import "@material/mwc-top-app-bar";
+import '@material/mwc-button';
+import '@material/mwc-dialog';
+import '@material/mwc-drawer';
+import '@material/mwc-icon-button';
+import '@material/mwc-top-app-bar';
 
-import { connect } from "pwa-helpers";
-import { installRouter } from "pwa-helpers";
-import { html, LitElement, css } from "lit-element";
+import { connect, installRouter } from 'pwa-helpers';
 
-import { store } from "../../src/store.js";
-import { navigate } from "../../src/actions/app.js";
+import { html, LitElement, css } from 'lit-element';
+
+import { store } from '../../src/store.js';
+import { navigate } from '../../src/actions/app.js';
 import {
   probeUSBDevices,
-  setupUSBListeners
-} from "../../src/actions/device.js";
-import { usbReducer } from "../../src/reducers/device.js";
-import { app } from "../../src/reducers/app.js";
-import { lib } from "../../assets/hterm_all.js";
+  setupUSBListeners,
+} from '../../src/actions/device.js';
+import { usbReducer } from '../../src/reducers/device.js';
+import { app } from '../../src/reducers/app.js';
+import { lib } from '../../assets/hterm_all.js';
 
-import "../hdctools_sidebar/hdctools-sidebar.js";
+import '../hdctools_sidebar/hdctools-sidebar.js';
 
 store.addReducers({ app });
 
@@ -32,14 +32,14 @@ class HdctoolsApp extends connect(store)(LitElement) {
         ._page[active] {
           display: block;
         }
-      `
+      `,
     ];
   }
 
   static get properties() {
     return {
       _title: { type: String },
-      _page: { type: String }
+      _page: { type: String },
     };
   }
 
@@ -51,10 +51,10 @@ class HdctoolsApp extends connect(store)(LitElement) {
   constructor() {
     super();
 
-    this.has_usb = "usb" in navigator;
-    if (this.has_usb) {
+    this.hasUsb = 'usb' in navigator;
+    if (this.hasUsb) {
       store.addReducers({
-        usb: usbReducer
+        usb: usbReducer,
       });
     }
   }
@@ -62,7 +62,7 @@ class HdctoolsApp extends connect(store)(LitElement) {
   connectedCallback() {
     super.connectedCallback();
 
-    if (this.has_usb) {
+    if (this.hasUsb) {
       setupUSBListeners();
       store.dispatch(probeUSBDevices);
     }
@@ -71,15 +71,15 @@ class HdctoolsApp extends connect(store)(LitElement) {
   firstUpdated() {
     installRouter(location => store.dispatch(navigate(location)));
     lib.init(() => {
-      console.log("hello");
+      console.log('hello');
     });
   }
 
   render() {
-    const { has_usb, _title, _page } = this;
+    const { hasUsb, _title, _page } = this;
     console.log(_page);
 
-    if (!has_usb) {
+    if (!hasUsb) {
       return html`
         <mwc-dialog heading="Oops" open raised>
           <div>
@@ -115,19 +115,19 @@ class HdctoolsApp extends connect(store)(LitElement) {
           </mwc-top-app-bar>
           <hdctools-home-view
             class="_page"
-            ?active="${_page === "home"}"
+            ?active="${_page === 'home'}"
           ></hdctools-home-view>
           <hdctools-consoles-viewer
             class="_page"
-            ?active="${_page === "consoles"}"
+            ?active="${_page === 'consoles'}"
           ></hdctools-consoles-viewer>
           <hdctools-flashrom-view
             class="_page"
-            ?active="${_page === "flashrom"}"
+            ?active="${_page === 'flashrom'}"
           ></hdctools-flashrom-view>
           <hdctools-404
             class="_page"
-            ?active="${_page === "404"}"
+            ?active="${_page === '404'}"
           ></hdctools-404>
         </div>
       </mwc-drawer>
@@ -135,10 +135,10 @@ class HdctoolsApp extends connect(store)(LitElement) {
   }
 
   _toggleAppBar(e) {
-    let drawer = e.currentTarget;
+    const drawer = e.currentTarget;
 
     drawer.open = !drawer.open;
   }
 }
 
-customElements.define("hdctools-app", HdctoolsApp);
+customElements.define('hdctools-app', HdctoolsApp);

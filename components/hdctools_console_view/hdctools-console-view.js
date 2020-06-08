@@ -1,16 +1,13 @@
 // The element for a single terminal window
-import { hterm } from "../../assets/hterm_all.js";
-import { connect } from "pwa-helpers";
-import { store } from "../../src/store.js";
+import { hterm } from '../../assets/hterm_all.js';
+import { connect } from 'pwa-helpers';
+import { store } from '../../src/store.js';
 
-import { html, css, LitElement } from "lit-element";
+import { html, css } from 'lit-element';
 
-//import { updateMetadata } from "https://unpkg.com/pwa-helpers@latest/metadata.js?module";
+import { PageViewElement } from '../page-view-element.js';
 
-import { currentDeviceSelector } from "../../src/actions/device.js";
-import { PageViewElement } from "../page-view-element.js";
-
-import { usbConsole } from "../../src/device/lib.js";
+import { UsbConsole } from '../../src/device/lib.js';
 
 class HdctoolsConsoleView extends connect(store)(PageViewElement) {
   static get styles() {
@@ -21,7 +18,7 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
           height: 90%;
           position: fixed;
         }
-      `
+      `,
     ];
   }
 
@@ -36,35 +33,33 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
       });
     } */
 
-    return html`
-      <div id="terminal"></div>
-    `;
+    return html` <div id="terminal"></div> `;
   }
 
   static get properties() {
     return {
       device: { type: Object },
-      intf: { type: Object }
+      intf: { type: Object },
     };
   }
 
   connectedCallback() {
     super.connectedCallback();
 
-    const usbBack = (this.usbBack = new usbConsole(this.device, this.intf));
+    const usbBack = (this.usbBack = new UsbConsole(this.device, this.intf));
     usbBack.open();
   }
 
   firstUpdated() {
-    this._terminal = this.shadowRoot.querySelector("#terminal");
+    this._terminal = this.shadowRoot.querySelector('#terminal');
     const usbBack = this.usbBack;
 
     // opt_profileName is the name of the terminal profile to load, or "default" if
     // not specified.  If you're using one of the persistent storage
     // implementations then this will scope all preferences read/writes to this
     // name.
-    const term = (this._term = new hterm.Terminal("default"));
-    term.onTerminalReady = function() {
+    const term = (this._term = new hterm.Terminal('default'));
+    term.onTerminalReady = function () {
       // Create a new terminal IO object and give it the foreground.
       // (The default IO object just prints warning messages about unhandled
       // things to the the JS console.)
@@ -74,9 +69,11 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
         usbBack.sendStr(str);
       };
 
+      /* TODO: Handle this?
       io.onTerminalResize = (columns, rows) => {
         // React to size changes here.
       };
+      */
     };
 
     term.decorate(this._terminal);
@@ -87,4 +84,4 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
   }
 }
 
-window.customElements.define("hdctools-console-view", HdctoolsConsoleView);
+window.customElements.define('hdctools-console-view', HdctoolsConsoleView);

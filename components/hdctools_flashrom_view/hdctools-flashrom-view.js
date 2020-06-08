@@ -1,13 +1,13 @@
-import "@material/mwc-icon-button";
-import "@material/mwc-linear-progress";
+import '@material/mwc-icon-button';
+import '@material/mwc-linear-progress';
 
-import { html, LitElement, css } from "lit-element";
-import { PageViewElement } from "../page-view-element.js";
-import { connect } from "pwa-helpers";
+import { html, css } from 'lit-element';
+import { PageViewElement } from '../page-view-element.js';
+import { connect } from 'pwa-helpers';
 
-import { store } from "../../src/store.js";
-import { readFlash, writeFlash } from "../../src/actions/flashrom.js";
-import { flashrom } from "../../src/reducers/flashrom.js";
+import { store } from '../../src/store.js';
+import { readFlash, writeFlash } from '../../src/actions/flashrom.js';
+import { flashrom } from '../../src/reducers/flashrom.js';
 
 store.addReducers({ flashrom });
 
@@ -32,7 +32,7 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
           justify-content: center;
           padding: 16px;
         }
-      `
+      `,
     ];
   }
 
@@ -42,7 +42,7 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
       _size: Number,
       _reading: Boolean,
       _writing: Boolean,
-      _serialNumber: String
+      _serialNumber: String,
     };
   }
 
@@ -61,7 +61,7 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
       _size,
       _reading,
       _writing,
-      _fileSelector
+      _fileSelector,
     } = this;
 
     const _loading = _reading || _writing;
@@ -69,23 +69,13 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
     return html`
       <div class="flashrom">
         <div class="fname">
-          ${_flashName
-            ? html`
-                Found ${_flashName} flash chip
-              `
-            : ``}
+          ${_flashName ? html` Found ${_flashName} flash chip ` : ``}
         </div>
         <div class="fsize">
-          ${_size >= 0
-            ? html`
-                Size is ${_size}
-              `
-            : ``}
+          ${_size >= 0 ? html` Size is ${_size} ` : ``}
         </div>
         ${_loading
-          ? html`
-              <mwc-linear-progress indeterminate></mwc-linear-progress>
-            `
+          ? html` <mwc-linear-progress indeterminate></mwc-linear-progress> `
           : html``}
         <div class="controls">
           <mwc-button
@@ -94,7 +84,7 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
             label="Read AP Flash"
             icon="cloud_download"
             ?disabled="${_loading == true}"
-            @click=${e => store.dispatch(readFlash(_serialNumber))}
+            @click=${store.dispatch(readFlash(_serialNumber))}
           ></mwc-button>
           <mwc-button
             class="spaced"
@@ -102,8 +92,7 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
             label="Write AP Flash"
             icon="cloud_upload"
             ?disabled="${_loading == true}"
-            @click=${e =>
-              store.dispatch(writeFlash(_serialNumber, _fileSelector))}
+            @click=${store.dispatch(writeFlash(_serialNumber, _fileSelector))}
           ></mwc-button>
         </div>
       </div>
@@ -112,8 +101,8 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
   }
 
   firstUpdated() {
-    this._fileSelector = this.shadowRoot.querySelector("#file-selector");
+    this._fileSelector = this.shadowRoot.querySelector('#file-selector');
   }
 }
 
-customElements.define("hdctools-flashrom-view", HdctoolsFlashromView);
+customElements.define('hdctools-flashrom-view', HdctoolsFlashromView);

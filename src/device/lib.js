@@ -1,4 +1,4 @@
-export class usbConsole {
+export class UsbConsole {
   constructor(device, intf) {
     this._device = device;
     this._intf = intf;
@@ -16,14 +16,16 @@ export class usbConsole {
   }
 
   async readloop(onRx) {
-    let decoder = new TextDecoder();
+    const decoder = new TextDecoder();
     const device = this._device;
     /* Seems that sometimes the Promise hasn't completed yet */
     if (this._intf.alternate === null) {
       await this.opening;
     }
-    const ep = this._intf.alternate.endpoints.find(e => e.direction == "in");
+    const ep = this._intf.alternate.endpoints.find(e => e.direction == 'in');
 
+    /* TODO: Replace with webworker and a message to stop */
+    /*eslint no-constant-condition: ["error", { "checkLoops": false }]*/
     while (true) {
       const { status, data } = await device.transferIn(
         ep.endpointNumber,
@@ -34,14 +36,14 @@ export class usbConsole {
         onRx(decoder.decode(data));
       }
 
-      if (status == "stall") break;
-      if (status == "babble") console.log("USB is babbling... that's bad");
+      if (status == 'stall') break;
+      if (status == 'babble') console.log("USB is babbling... that's bad");
     }
   }
 
   async sendStr(str) {
     const device = this._device;
-    const ep = this._intf.alternate.endpoints.find(e => e.direction == "out");
+    const ep = this._intf.alternate.endpoints.find(e => e.direction == 'out');
     const encoded = new TextEncoder().encode(str);
 
     await device.transferOut(ep.endpointNumber, encoded);
@@ -59,7 +61,7 @@ export class usbConsole {
   }
 }
 
-export class servoUSBDevice {
+export class ServoUSBDevice {
   constructor(device) {
     this.device = device;
   }
@@ -76,7 +78,7 @@ export class servoUSBDevice {
         }
         return false;
       })
-      .map(intf => new usbConsole(device, intf));
+      .map(intf => new UsbConsole(device, intf));
   }
 
   async open() {

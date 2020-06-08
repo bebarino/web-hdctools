@@ -1,31 +1,29 @@
 import {
   USB_DEVICE_ADDED,
   USB_DEVICE_REMOVED,
-  USB_DEVICES_PROBED
-} from "../actions/device.js";
+  USB_DEVICES_PROBED,
+} from '../actions/device.js';
 
 const INITIAL_STATE = {
-  devices: []
+  devices: [],
 };
 
 export const usbReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case USB_DEVICE_ADDED:
-      const added = action.device;
       return {
         ...state,
-        devices: [...state.devices, added]
+        devices: [...state.devices, action.device],
       };
     case USB_DEVICE_REMOVED:
-      const removed = action.device;
       return {
         ...state,
-        devices: state.devices.filter(device => device !== removed)
+        devices: state.devices.filter(device => device !== action.device),
       };
     case USB_DEVICES_PROBED:
       return {
         ...state,
-        devices: [...action.devices]
+        devices: [...action.devices],
       };
     default:
       return state;

@@ -1,5 +1,5 @@
-import { html, LitElement } from "lit-element";
-import { PageViewElement } from "../page-view-element.js";
+import { html } from 'lit-element';
+import { PageViewElement } from '../page-view-element.js';
 
 class HdctoolsHomeView extends PageViewElement {
   render() {
@@ -14,4 +14,4 @@ class HdctoolsHomeView extends PageViewElement {
   }
 }
 
-customElements.define("hdctools-home-view", HdctoolsHomeView);
+customElements.define('hdctools-home-view', HdctoolsHomeView);

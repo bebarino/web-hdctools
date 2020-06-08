@@ -1,17 +1,16 @@
-import "@material/mwc-button";
-import "@material/mwc-drawer";
-import "@material/mwc-icon-button";
-import "@material/mwc-list/mwc-list.js";
-import "@material/mwc-list/mwc-list-item.js";
-import "@material/mwc-tab-bar";
+import '@material/mwc-button';
+import '@material/mwc-drawer';
+import '@material/mwc-icon-button';
+import '@material/mwc-list/mwc-list.js';
+import '@material/mwc-list/mwc-list-item.js';
+import '@material/mwc-tab-bar';
 
-import { connect } from "pwa-helpers";
-import { store } from "../../src/store.js";
-import { selectDevice, requestUSBDevice } from "../../src/actions/device.js";
-import { updateLocationURL } from "../../src/actions/app.js";
+import { connect } from 'pwa-helpers';
+import { store } from '../../src/store.js';
+import { selectDevice, requestUSBDevice } from '../../src/actions/device.js';
 
-import { html, LitElement, css } from "lit-element";
-import { repeat } from "lit-html/directives/repeat.js"
+import { html, LitElement } from 'lit-element';
+import { repeat } from 'lit-html/directives/repeat.js';
 
 /* Represents the consoles for a particular USB device */
 class HdctoolsSideBar extends connect(store)(LitElement) {
@@ -21,7 +20,7 @@ class HdctoolsSideBar extends connect(store)(LitElement) {
 
   static get properties() {
     return {
-      _devices: { type: Array }
+      _devices: { type: Array },
     };
   }
 
@@ -39,25 +38,23 @@ class HdctoolsSideBar extends connect(store)(LitElement) {
           @selected=${e => store.dispatch(selectDevice(e.detail.index))}
         >
           ${_devices &&
-            repeat(
-              _devices,
-              device => html`
-                <a
-                  style="text-decoration: none"
-                  href="/consoles/${device.serialNumber}"
-                >
-                  <mwc-list-item graphic="avatar" twoline>
-                    <span>${device.productName}</span>
-                    <span slot="secondary">${device.serialNumber}</span>
-                    <mwc-icon slot="graphic">usb</mwc-icon>
-                  </mwc-list-item>
-                </a>
-              `
-            )}
+          repeat(
+            _devices,
+            device => html`
+              <a
+                style="text-decoration: none"
+                href="/consoles/${device.serialNumber}"
+              >
+                <mwc-list-item graphic="avatar" twoline>
+                  <span>${device.productName}</span>
+                  <span slot="secondary">${device.serialNumber}</span>
+                  <mwc-icon slot="graphic">usb</mwc-icon>
+                </mwc-list-item>
+              </a>
+            `
+          )}
           ${_devices.length
-            ? html`
-                <li divider role="separator"></li>
-              `
+            ? html` <li divider role="separator"></li> `
             : html``}
         </mwc-list>
         <mwc-list>
@@ -79,4 +76,4 @@ class HdctoolsSideBar extends connect(store)(LitElement) {
   }
 }
 
-customElements.define("hdctools-sidebar", HdctoolsSideBar);
+customElements.define('hdctools-sidebar', HdctoolsSideBar);

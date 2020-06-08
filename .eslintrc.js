@@ -17,8 +17,9 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': ['error', 'always', { ignorePackages: true }],
   },
-  ignorePatterns: ['assets/*.js'],
+  ignorePatterns: ['assets/*.js', 'karma.conf.js', 'rollup.config.js'],
   env: {
     browser: true,
+    es6: true,
   },
 };

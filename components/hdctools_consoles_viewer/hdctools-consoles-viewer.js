@@ -1,27 +1,25 @@
-import "@material/mwc-button";
-import "@material/mwc-dialog";
-import "@material/mwc-drawer";
-import "@material/mwc-icon-button";
-import "@material/mwc-list";
-import "@material/mwc-tab-bar";
+import '@material/mwc-button';
+import '@material/mwc-dialog';
+import '@material/mwc-drawer';
+import '@material/mwc-icon-button';
+import '@material/mwc-list';
+import '@material/mwc-tab-bar';
 
-import { html, LitElement, css } from "lit-element";
-import { render } from "lit-html";
-import { PageViewElement } from "../page-view-element.js";
-import { connect } from "pwa-helpers";
-import { repeat } from "lit-html/directives/repeat.js";
+import { html, css } from 'lit-element';
+import { PageViewElement } from '../page-view-element.js';
+import { connect } from 'pwa-helpers';
+import { repeat } from 'lit-html/directives/repeat.js';
 
-import { store } from "../../src/store.js";
+import { store } from '../../src/store.js';
 
-import { openDevice, currentDeviceSelector } from "../../src/actions/device.js";
+import { openDevice, currentDeviceSelector } from '../../src/actions/device.js';
 import {
   discoverConsoles,
   selectConsole,
-  currentConsoleSelector
-} from "../../src/actions/console.js";
-import { consoles } from "../../src/reducers/console.js";
-import { updateLocationURL } from "../../src/actions/app.js";
-import "../hdctools_console_view/hdctools-console-view.js";
+  currentConsoleSelector,
+} from '../../src/actions/console.js';
+import { consoles } from '../../src/reducers/console.js';
+import '../hdctools_console_view/hdctools-console-view.js';
 
 store.addReducers({ consoles });
 
@@ -39,7 +37,7 @@ class HdctoolsConsolesViewer extends connect(store)(PageViewElement) {
         ._console[active] {
           display: block;
         }
-      `
+      `,
     ];
   }
 
@@ -48,12 +46,11 @@ class HdctoolsConsolesViewer extends connect(store)(PageViewElement) {
       _consoles: { type: Array },
       _device: { type: Object },
       _intf: { type: Object },
-      _terminals: { type: Array }
     };
   }
 
   render() {
-    const { _consoles, _terminals, _device, _intf } = this;
+    const { _consoles, _device, _intf } = this;
 
     return html`
       <mwc-tab-bar
@@ -64,9 +61,7 @@ class HdctoolsConsolesViewer extends connect(store)(PageViewElement) {
       >
         ${repeat(
           _consoles,
-          console => html`
-            <mwc-tab label="Console" icon="computer"></mwc-tab>
-          `
+          html`<mwc-tab label="Console" icon="computer"></mwc-tab>`
         )}
       </mwc-tab-bar>
       <div id="consoles">
@@ -86,7 +81,7 @@ class HdctoolsConsolesViewer extends connect(store)(PageViewElement) {
   }
 
   firstUpdated() {
-    this.terminals = this.shadowRoot.querySelector("#consoles");
+    this.terminals = this.shadowRoot.querySelector('#consoles');
   }
 
   stateChanged(state) {
@@ -116,6 +111,6 @@ class HdctoolsConsolesViewer extends connect(store)(PageViewElement) {
   }
 }
 
-customElements.define("hdctools-consoles-viewer", HdctoolsConsolesViewer);
+customElements.define('hdctools-consoles-viewer', HdctoolsConsolesViewer);
 
 export { openDevice, discoverConsoles };

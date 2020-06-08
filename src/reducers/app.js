@@ -4,12 +4,12 @@ import {
   UPDATE_DRAWER_STATE,
   OPEN_SNACKBAR,
   CLOSE_SNACKBAR,
-  NAVIGATED_LOCATION
-} from "../actions/app.js";
+  NAVIGATED_LOCATION,
+} from '../actions/app.js';
 
 const INITIAL_STATE = {
-  title: "hdctools in JavaScript!!",
-  page: "home"
+  title: 'hdctools in JavaScript!!',
+  page: 'home',
 };
 
 export const app = (state = INITIAL_STATE, action) => {
@@ -17,34 +17,33 @@ export const app = (state = INITIAL_STATE, action) => {
     case UPDATE_TITLE:
       return {
         ...state,
-        title: action.title
+        title: action.title,
       };
     case UPDATE_PAGE:
-      const p = action.page;
       return {
         ...state,
         prevpage: state.page,
-        page: p
+        page: action.page,
       };
     case UPDATE_DRAWER_STATE:
       return {
         ...state,
-        drawerOpened: action.opened
+        drawerOpened: action.opened,
       };
     case OPEN_SNACKBAR:
       return {
         ...state,
-        snackbarOpened: true
+        snackbarOpened: true,
       };
     case CLOSE_SNACKBAR:
       return {
         ...state,
-        snackbarOpened: false
+        snackbarOpened: false,
       };
     case NAVIGATED_LOCATION:
       return {
         ...state,
-        location: action.location
+        location: action.location,
       };
     default:
       return state;
