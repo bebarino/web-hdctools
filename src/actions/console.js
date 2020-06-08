@@ -28,7 +28,7 @@ export const discoverConsoles = (dispatch, getState) => {
   dispatch(consoleInterfacesFound(interfaces));
 };
 
-export const selectConsole = index => async (dispatch, getState) => {
+export const selectConsole = index => (dispatch, getState) => {
   const state = getState();
   const device = currentDeviceSelector(state);
 
