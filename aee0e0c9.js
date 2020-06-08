@@ -1,1 +1,0 @@
-let e,r=e=>e;import{h as t}from"./f3c7e09d.js";import{P as d}from"./d0598922.js";customElements.define("hdctools-home-view",class extends d{render(){return t(e||(e=r` <div> <p> There's nothing here right now.... Add a device via the left hamburger menu!!! </p> </div> `))}});
