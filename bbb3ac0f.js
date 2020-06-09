@@ -1,2 +1,0 @@
-let e,t,s=e=>e;import{d as c,h as n}from"./433c3194.js";import{P as i}from"./5c2935e7.js";customElements.define("hdctools-404",class extends i{static get styles(){return[c(e||(e=s`.center{display:flex;flex-direction:column;align-items:center;justify-content:center;--mdc-icon-size:64px}`))]}render(){return n(t||(t=s` <div class="center"> <mwc-icon>error_outline</mwc-icon> <h2>Oops that page doesn't exist</h2> </div> `))}});
-//# sourceMappingURL=bbb3ac0f.js.map
