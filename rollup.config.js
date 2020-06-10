@@ -4,8 +4,6 @@ import legacy from '@rollup/plugin-legacy';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 
-const env = JSON.stringify(process.env.NODE_ENV || 'development');
-
 const baseConfig = createSpaConfig({
   // development mode creates a non-minified build for debugging or development
   developmentMode: process.env.ROLLUP_WATCH === 'true',
@@ -30,8 +28,8 @@ export default merge(baseConfig, {
       browser: true,
     }),
     replace({
-      ENV: env,
-      'process.env.NODE_ENV': env,
+      'process.env.NODE_ENV':
+        process.env.ROLLUP_WATCH === 'true' ? '"development"' : '"production"',
     }),
   ],
 });
