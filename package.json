@@ -25,7 +25,7 @@
     "@open-wc/demoing-storybook": "^2.3.9",
     "@open-wc/eslint-config": "^2.0.0",
     "@open-wc/testing": "^2.0.0",
-    "@open-wc/testing-karma": "^3.4.4",
+    "@open-wc/testing-karma": "^3.4.5",
     "@rollup/plugin-legacy": "^2.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
