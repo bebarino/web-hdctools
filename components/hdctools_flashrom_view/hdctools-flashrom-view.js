@@ -39,6 +39,7 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
   static get properties() {
     return {
       _flashName: String,
+      _fileSelector: Object,
       _size: Number,
       _reading: Boolean,
       _writing: Boolean,
