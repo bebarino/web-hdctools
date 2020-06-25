@@ -84,7 +84,7 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
             label="Read AP Flash"
             icon="cloud_download"
             ?disabled="${_loading == true}"
-            @click=${store.dispatch(readFlash(_serialNumber))}
+            @click=${() => store.dispatch(readFlash(_serialNumber))}
           ></mwc-button>
           <mwc-button
             class="spaced"
@@ -92,7 +92,8 @@ class HdctoolsFlashromView extends connect(store)(PageViewElement) {
             label="Write AP Flash"
             icon="cloud_upload"
             ?disabled="${_loading == true}"
-            @click=${store.dispatch(writeFlash(_serialNumber, _fileSelector))}
+            @click=${() =>
+              store.dispatch(writeFlash(_serialNumber, _fileSelector))}
           ></mwc-button>
         </div>
       </div>
