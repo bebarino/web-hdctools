@@ -41,7 +41,7 @@ const flashromChipWrite = () => {
 
 const flashromChipWriteFinished = () => {
   return {
-    type: FLASHROM_CHIP_WRITE,
+    type: FLASHROM_CHIP_WRITE_FINISHED,
   };
 };
 
