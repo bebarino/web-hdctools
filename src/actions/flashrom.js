@@ -108,8 +108,13 @@ export const writeFlash = (serialNumber, fileSelector) => async dispatch => {
           resolve(new Uint8Array(event.target.result));
         }
       });
-      reader.addEventListener('error', reject(Error('Something went wrong')));
-      reader.addEventListener('abort', reject(Error('User aborted')));
+      /* TODO: Should handle cancel and errors gracefully */
+      reader.addEventListener('error', e =>
+        reject(Error('Something went wrong: ' + e))
+      );
+      reader.addEventListener('abort', e =>
+        reject(Error('User canceled: ' + e))
+      );
 
       reader.readAsArrayBuffer(file);
     });
