@@ -1,14 +1,9 @@
 import { libflashrom } from '../libflashrom.mjs';
 
-const wasmasset =
-  'https://cdn.glitch.com/d68e5429-9bed-421c-8d97-def2c83b3c62%2Flibflashrom.wasm?v=1589963204087';
-
 let api;
 const mymod = libflashrom({
   locateFile: function (path, dir) {
-    if (path.endsWith('libflashrom.wasm')) {
-      return wasmasset;
-    }
+    console.log('path ' + path + ' dir ' + dir);
     return dir + path;
   },
 }).then(m => {
