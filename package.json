@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "@material/mwc-button": "^0.15.0",
-    "@material/mwc-dialog": "^0.15.0",
+    "@material/mwc-dialog": "^0.17.2",
     "@material/mwc-drawer": "^0.15.0",
     "@material/mwc-icon-button": "^0.15.0",
     "@material/mwc-linear-progress": "^0.15.0",
