@@ -21,7 +21,7 @@
     "url": "https://github.com/bebarino/web-hdctools.git"
   },
   "devDependencies": {
-    "@open-wc/building-rollup": "^1.0.0",
+    "@open-wc/building-rollup": "^1.9.2",
     "@open-wc/demoing-storybook": "^2.3.10",
     "@open-wc/eslint-config": "^2.0.0",
     "@open-wc/testing": "^2.5.18",
