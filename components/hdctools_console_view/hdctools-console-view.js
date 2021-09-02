@@ -79,7 +79,11 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
 
     term.decorate(this._terminal);
     usbBack.readloop(str => {
-      term.io.writeUTF8(str.buffer);
+      try {
+        term.io.writeUTF8(str.buffer);
+      } catch (error) { 
+        log.print(e); 
+      }
     });
     term.installKeyboard();
   }
