@@ -16,7 +16,6 @@ export class UsbConsole {
   }
 
   async readloop(onRx) {
-    const decoder = new TextDecoder();
     const device = this._device;
     /* Seems that sometimes the Promise hasn't completed yet */
     if (this._intf.alternate === null) {
@@ -33,7 +32,7 @@ export class UsbConsole {
       );
 
       if (data) {
-        onRx(decoder.decode(data));
+        onRx(data);
       }
 
       if (status == 'stall') break;
