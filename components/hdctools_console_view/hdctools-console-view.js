@@ -80,7 +80,9 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
     usbBack.readloop(str => {
       try {
         term.io.print(str);
-      } catch (err) { 
+      } catch (err) {
+        // Catch the exception for now and log it. Sometimes bad data gets through
+        // and I don't know how to convert junk into question marks for the string.
         console.error("str was ", str)
         console.error(err); 
       }
