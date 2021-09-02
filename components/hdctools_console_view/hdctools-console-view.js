@@ -82,7 +82,8 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
       try {
         term.io.writeUTF8(str.buffer);
       } catch (error) { 
-        log.print(e); 
+        log.println("str was ", str)
+        log.println(e); 
       }
     });
     term.installKeyboard();
