@@ -79,7 +79,7 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
     term.decorate(this._terminal);
     usbBack.readloop(str => {
       try {
-        term.io.writeUTF8(str);
+        term.io.print(str);
       } catch (err) { 
         console.error("str was ", str)
         console.error(err); 
