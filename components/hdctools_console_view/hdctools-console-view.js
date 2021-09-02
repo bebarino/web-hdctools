@@ -78,7 +78,14 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
 
     term.decorate(this._terminal);
     usbBack.readloop(str => {
-      term.io.print(str);
+      try {
+        term.io.print(str);
+      } catch (err) {
+        // Catch the exception for now and log it. Sometimes bad data gets through
+        // and I don't know how to convert junk into question marks for the string.
+        console.error("str was ", str)
+        console.error(err); 
+      }
     });
     term.installKeyboard();
   }

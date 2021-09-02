@@ -32,8 +32,8 @@ export class UsbConsole {
         ep.packetSize
       );
 
-      if (data) {
-        onRx(decoder.decode(data));
+      if (status == 'ok' && data) {
+        onRx(decoder.decode(data, {stream: true}));
       }
 
       if (status == 'stall') break;
