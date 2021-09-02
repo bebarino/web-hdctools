@@ -59,6 +59,7 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
     // implementations then this will scope all preferences read/writes to this
     // name.
     const term = (this._term = new hterm.Terminal('default'));
+    term.getPrefs().set('receive-encoding', 'raw');
     term.onTerminalReady = function () {
       // Create a new terminal IO object and give it the foreground.
       // (The default IO object just prints warning messages about unhandled
@@ -78,7 +79,7 @@ class HdctoolsConsoleView extends connect(store)(PageViewElement) {
 
     term.decorate(this._terminal);
     usbBack.readloop(str => {
-      term.io.writeUTF8(new Uint8Array(str.buffer));
+      term.io.writeUTF8(str.buffer);
     });
     term.installKeyboard();
   }
