@@ -31,7 +31,7 @@ export class UsbConsole {
         ep.packetSize
       );
 
-      if (data) {
+      if (status == 'ok' && data) {
         onRx(data);
       }
 
