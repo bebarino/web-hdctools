@@ -16,6 +16,7 @@ const microPID = 0x501a;
 const suzyqPID = 0x5014;
 const suzyq2PID = 0x501f
 const servov4PID = 0x501b;
+const Ti50PID = 0x504a;
 //const suzyq_cr50Intf = 0;
 //const suzyq_cr50Ep = 1;
 //const suzyq_ECIntf = 2;
@@ -108,6 +109,11 @@ export const requestUSBDevice = dispatch => {
           // ServoV4
           vendorId: googVID,
           productId: servov4PID,
+        },
+        {
+          // Ti50
+          vendorId: googVID,
+          productId: Ti50PID,
         },
       ],
     })
