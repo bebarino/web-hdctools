@@ -14,6 +14,7 @@ import { store } from '../store.js';
 const googVID = 0x18d1;
 const microPID = 0x501a;
 const suzyqPID = 0x5014;
+const suzyq2PID = 0x501f
 const servov4PID = 0x501b;
 //const suzyq_cr50Intf = 0;
 //const suzyq_cr50Ep = 1;
@@ -97,6 +98,11 @@ export const requestUSBDevice = dispatch => {
           // SuzyQ
           vendorId: googVID,
           productId: suzyqPID,
+        },
+        {
+          // SuzyQ2
+          vendorId: googVID,
+          productId: suzyq2PID,
         },
         {
           // ServoV4
